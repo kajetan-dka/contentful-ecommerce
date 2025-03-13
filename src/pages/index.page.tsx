@@ -6,6 +6,7 @@ import { useTranslation } from 'next-i18next';
 import { HeroBanner } from '@src/components/features/hero-banner';
 import { ProductTileGrid } from '@src/components/features/product';
 import { SeoFields } from '@src/components/features/seo';
+import { PageLandingFieldsFragment } from '@src/lib/__generated/sdk';
 import { client, previewClient } from '@src/lib/client';
 import { getServerSideTranslations } from '@src/pages/utils/get-serverside-translations';
 
@@ -34,7 +35,10 @@ const Page = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => 
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ locale, preview }) => {
+export const getServerSideProps: GetServerSideProps<{ page: PageLandingFieldsFragment }> = async ({
+  locale,
+  preview,
+}) => {
   try {
     const gqlClient = preview ? previewClient : client;
 
