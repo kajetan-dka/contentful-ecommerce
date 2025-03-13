@@ -31,7 +31,7 @@ export const config: CodegenConfig = {
       config: {
         rawRequest: false,
         inlineFragmentTypes: 'combine',
-        skipTypename: false,
+        skipTypename: true,
         exportFragmentSpreadSubTypes: true,
         dedupeFragments: true,
         preResolveTypes: true,
