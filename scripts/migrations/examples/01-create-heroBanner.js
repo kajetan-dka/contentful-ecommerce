@@ -1,7 +1,7 @@
 /**
  * @type {import('contentful-migration').MigrationFunction} MigrationFunction
  */
-module.exports = function (migration) {
+const migrate = function (migration) {
   const heroBanner = migration.createContentType('heroBanner', {
     displayField: 'title',
     name: 'Hero Banner',
@@ -25,3 +25,5 @@ module.exports = function (migration) {
 
   heroBanner.createField('image').name('Image').type('Link').linkType('Asset');
 };
+
+module.exports = migrate;
